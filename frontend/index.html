@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poll App</title>
+
+  <!-- Fonts: editorial serif + clean mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,600&family=JetBrains+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Paper grain overlay -->
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-mark">◉</span>
+      <span class="brand-name">Poll App</span>
+    </div>
+
+  </header>
+
+  <main class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <h1 class="hero-title">
+        Ask a question.<br />
+        <em>Hear the room.</em>
+      </h1>
+      <p class="hero-sub">
+        Create a poll, share it, and watch the results unfold in real time.
+        Every vote counts &mdash; and only once.
+      </p>
+    </section>
+
+    <!-- CREATE POLL -->
+    <section class="create-section" aria-labelledby="create-heading">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 id="create-heading">Compose a poll</h2>
+      </div>
+
+      <form id="poll-form" class="poll-form" novalidate>
+        <label class="field">
+          <span class="field-label">The Question</span>
+          <input
+            type="text"
+            id="question-input"
+            name="question"
+            placeholder="What's for dinner tonight?"
+            maxlength="200"
+            autocomplete="off"
+            required
+          />
+        </label>
+
+        <div class="field">
+          <span class="field-label">The Options <span class="field-hint">(2–4)</span></span>
+          <div id="options-container" class="options-container">
+            <!-- Rendered by JS -->
+          </div>
+          <button type="button" id="add-option-btn" class="btn btn-ghost">
+            + Add option
+          </button>
+        </div>
+
+        <div id="form-error" class="form-error" role="alert" aria-live="polite"></div>
+
+        <button type="submit" class="btn btn-primary">
+          <span>Publish poll</span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- POLLS LIST -->
+    <section class="polls-section" aria-labelledby="polls-heading">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2 id="polls-heading">The polls, in order of recency</h2>
+      </div>
+
+      <div id="polls-container" class="polls-grid">
+        <!-- Rendered by JS -->
+      </div>
+
+      <div id="empty-state" class="empty-state" hidden>
+        <p class="empty-mark">∅</p>
+        <p class="empty-text">No polls yet. Start the conversation above.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© poll app </span>
+    <span class="footer-sep">·</span>
+    
+  </footer>
+
+  <!-- Toast -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
